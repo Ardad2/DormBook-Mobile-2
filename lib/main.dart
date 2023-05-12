@@ -8,7 +8,22 @@ import 'package:instagram_flutter/responsive/web_screen_layout.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  if(kIsWeb)
+  {
+    await Firebase.initializeApp(
+      options: FirebaseOptions(
+        apiKey: 'AIzaSyCvXUxjxCJaazTUl10iDfbVp1ubFF7h07c', 
+      appId: '1:1058392679783:web:700ed4a5a7cb7060c8fbc2', 
+      messagingSenderId: '1058392679783', 
+      projectId: 'instagram-tut-25e7e',
+      storageBucket: 'instagram-tut-25e7e.appspot.com',
+      ),
+      );
+  }
+  else {
   await Firebase.initializeApp();
+  }
   runApp(const MyApp());
 }
 
